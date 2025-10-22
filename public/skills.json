@@ -1,0 +1,74 @@
+[
+  {
+    "skillId": 1,
+    "skillName": "Beginner Guitar Lessons",
+    "providerName": "Alex Martin",
+    "providerEmail": "alex@skillswap.com",
+    "price": 20,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Acoustic guitar classes for complete beginners. Learn chords, strumming, and your first songs within weeks.",
+    "image": "https://i.ibb.co.com/0pwhpkS2/photo-1525201548942-d8732f6617a0.jpg",
+    "category": "Music"
+  },
+  {
+    "skillId": 2,
+    "skillName": "Spoken English Practice",
+    "providerName": "Sara Hossain",
+    "providerEmail": "sara@skillswap.com",
+    "price": 10,
+    "rating": 4.6,
+    "slotsAvailable": 5,
+    "description": "Interactive English conversation sessions to improve fluency, vocabulary, and pronunciation.",
+    "image": "https://i.ibb.co.com/VYPg89dx/photo-1503676260728-1c00da094a0b.jpg",
+    "category": "Language"
+  },
+  {
+    "skillId": 3,
+    "skillName": "Basic Web Development Bootcamp",
+    "providerName": "Rafiul Karim",
+    "providerEmail": "rafiul@skillswap.com",
+    "price": 25,
+    "rating": 4.9,
+    "slotsAvailable": 4,
+    "description": "Learn HTML, CSS, and JavaScript from scratch. Build your first responsive website with real projects.",
+    "image": "https://i.ibb.co.com/RV0GRTN/photo-1499951360447-b19be8fe80f5.jpg",
+    "category": "Technology"
+  },
+  {
+    "skillId": 4,
+    "skillName": "Creative Photography Workshop",
+    "providerName": "Nadia Rahman",
+    "providerEmail": "nadia@skillswap.com",
+    "price": 18,
+    "rating": 4.7,
+    "slotsAvailable": 2,
+    "description": "Learn how to shoot stunning photos using natural light, composition rules, and creative perspectives.",
+    "image": "https://i.ibb.co.com/23mxHN8P/pexels-daiangan-102127.jpg",
+    "category": "Art"
+  },
+  {
+    "skillId": 5,
+    "skillName": "Yoga & Mindfulness Training",
+    "providerName": "Tanvir Alam",
+    "providerEmail": "tanvir@skillswap.com",
+    "price": 15,
+    "rating": 4.5,
+    "slotsAvailable": 6,
+    "description": "Morning yoga sessions to improve flexibility, strength, and inner peace. Suitable for all levels.",
+    "image": "https://i.ibb.co.com/JRNbmD3Q/pexels-victorfreitas-841130.jpg",
+    "category": "Health"
+  },
+  {
+    "skillId": 6,
+    "skillName": "Home Baking for Beginners",
+    "providerName": "Fatema Noor",
+    "providerEmail": "fatema@skillswap.com",
+    "price": 12,
+    "rating": 4.8,
+    "slotsAvailable": 5,
+    "description": "Learn to bake soft cakes, cupcakes, and cookies right at home. No prior experience needed.",
+    "image": "https://i.ibb.co.com/0jkgs9LQ/pexels-shvetsa-12673981.jpg",
+    "category": "Cooking"
+  }
+]
