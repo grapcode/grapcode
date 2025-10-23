@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router';
-import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import {
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+  updateProfile,
+} from 'firebase/auth';
 import { auth } from '../firebase/firebase.config';
 import { toast } from 'react-toastify';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
@@ -24,17 +28,27 @@ const Signup = () => {
       return;
     }
 
-    // ⚡ signup with email
+    // ⚡1st: signup with email
     createUserWithEmailAndPassword(auth, email, password)
       .then((res) => {
-        // ❄️ updateProfile
+        // ❄️ 2nd: updateProfile
         updateProfile(res.user, {
           displayName,
           photoURL,
         })
           .then(() => {
-            const user = res.user;
-            toast.success('Account created successfully!', user);
+            // 🍁 3rd: sendEmailVerification
+            sendEmailVerification(res.user)
+              .then(() => {
+                const user = res.user;
+                toast.success(
+                  'Account created successfully!. Check your email to validate your account.',
+                  user
+                );
+              })
+              .catch((e) => {
+                toast.error(e.message);
+              });
           })
           .catch((e) => {
             toast.error(e.message);

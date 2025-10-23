@@ -31,6 +31,12 @@ const Signin = () => {
     // ⚡ signin with email
     signInWithEmailAndPassword(auth, email, password)
       .then((res) => {
+        console.log(res);
+        // 🍁 form signup 3rd: sendEmailVerification
+        if (!res.user.emailVerified) {
+          toast.error('Your email is not verified.');
+          return;
+        }
         const user = res.user;
         toast.success('Sign up was successful.');
         setUser(user);
