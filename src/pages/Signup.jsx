@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { AuthContext } from '../context/AuthContext';
@@ -11,7 +11,12 @@ const Signup = () => {
     updateProfileFunc,
     sendEmailVerificationFunc,
     setLoading,
+    signoutUserFunc,
+    setUser,
   } = useContext(AuthContext);
+
+  // 🔰 After successful signup, navigate to login page
+  const navigate = useNavigate();
 
   // ⚡ show password
   const [show, setShow] = useState(false);
@@ -48,10 +53,16 @@ const Signup = () => {
               .then(() => {
                 const user = res.user;
                 setLoading(false);
-                toast.success(
-                  'Account created successfully!. Check your email to validate your account.',
-                  user
-                );
+
+                // ⚡ signout user
+                signoutUserFunc().then(() => {
+                  toast.success(
+                    'Account created successfully!. Check your email to validate your account.',
+                    user
+                  );
+                  setUser(null);
+                  navigate('/signin');
+                });
               })
               .catch((e) => {
                 toast.error(e.message);

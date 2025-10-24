@@ -8,6 +8,7 @@ import SkillsDetails from '../pages/SkillsDetails';
 import Home from '../pages/Home';
 import Signup from '../pages/Signup';
 import Signin from '../pages/Signin';
+import PrivateRoute from '../privateRoute/PrivateRoute';
 
 export const router = createBrowserRouter([
   {
@@ -20,14 +21,23 @@ export const router = createBrowserRouter([
       },
       {
         path: '/skills/:id',
-        element: <SkillsDetails />,
+        element: (
+          <PrivateRoute>
+            <SkillsDetails />
+          </PrivateRoute>
+        ),
         loader: () => fetch('/skills.json'),
         hydrateFallbackElement: <MyLoading />,
       },
       {
         path: '/myProfile',
-        element: <MyProfile />,
+        element: (
+          <PrivateRoute>
+            <MyProfile />
+          </PrivateRoute>
+        ),
       },
+
       {
         path: '/signup',
         element: <Signup />,

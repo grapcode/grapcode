@@ -9,9 +9,11 @@ import { FadeLoader } from 'react-spinners';
 
 const Navbar = () => {
   // 🔰 get user from authProvider
-  const { user, setUser, signoutUserFunc, loading, setLoading } =
-    useContext(AuthContext);
-  console.log(user);
+  const { user, setUser, signoutUserFunc, loading } = useContext(AuthContext);
+  // console.log(user);
+
+  // 🔰 After successful signin, navigate to home page
+  // const navigate = useNavigate();
 
   // ⚡ handle sign out btn
   const handleSignout = () => {
@@ -31,9 +33,11 @@ const Navbar = () => {
       <li>
         <MyLink to="/">Home</MyLink>
       </li>
-      <li>
-        <MyLink to="/myProfile">My-Profile</MyLink>
-      </li>
+      {user && (
+        <li>
+          <MyLink to="/myProfile">My-Profile</MyLink>
+        </li>
+      )}
     </>
   );
   return (

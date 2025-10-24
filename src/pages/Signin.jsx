@@ -1,7 +1,7 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useRef, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { AuthContext } from '../context/AuthContext';
@@ -12,9 +12,18 @@ const Signin = () => {
     signInWithEmailAndPasswordFunc,
     signInWithGoogleFunc,
     sendPasswordResetEmailFunc,
+    user,
     setUser,
     setLoading,
   } = useContext(AuthContext);
+
+  // 🔰 After successful signin, navigate to home page
+  const navigate = useNavigate();
+
+  // ♻️ user signin thakle -- signin dekhabe na
+  if (user) {
+    navigate('/');
+  }
 
   // 🎯  Forgot password
   //   const [email, setEmail] = useState(null);
@@ -43,6 +52,7 @@ const Signin = () => {
         const user = res.user;
         toast.success('Sign up was successful.');
         setUser(user);
+        navigate('/');
       })
       .catch((e) => {
         toast.error(e.message);
