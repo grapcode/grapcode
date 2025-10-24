@@ -1,2 +1,7 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+/* custom css */
+.bg-gradient {
+    @apply bg-linear-to-r from-[#1428bf] to-[#ff5cf4]
+}

@@ -1,13 +1,17 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router';
-import { sendEmailVerification, updateProfile } from 'firebase/auth';
 import { toast } from 'react-toastify';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { AuthContext } from '../context/AuthContext';
 
 const Signup = () => {
   // 🔰 get authProvider Func
-  const { createUserWithEmailAndPasswordFunc } = useContext(AuthContext);
+  const {
+    createUserWithEmailAndPasswordFunc,
+    updateProfileFunc,
+    sendEmailVerificationFunc,
+    setLoading,
+  } = useContext(AuthContext);
 
   // ⚡ show password
   const [show, setShow] = useState(false);
@@ -31,16 +35,19 @@ const Signup = () => {
     // createUserWithEmailAndPassword(auth, email, password)
     createUserWithEmailAndPasswordFunc(email, password)
       .then((res) => {
-        // ❄️ 2nd: updateProfile
-        updateProfile(res.user, {
-          displayName,
-          photoURL,
-        })
+        // ❄️ 2nd: updateProfile --> old --> vs --> updateProfileFunc(displayName, photoURL)
+        // updateProfile(res.user, {
+        //   displayName,
+        //   photoURL,
+        // })
+        updateProfileFunc(displayName, photoURL)
           .then(() => {
             // 🍁 3rd: sendEmailVerification
-            sendEmailVerification(res.user)
+            // sendEmailVerification(res.user)
+            sendEmailVerificationFunc()
               .then(() => {
                 const user = res.user;
+                setLoading(false);
                 toast.success(
                   'Account created successfully!. Check your email to validate your account.',
                   user
