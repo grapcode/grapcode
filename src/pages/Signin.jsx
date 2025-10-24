@@ -1,20 +1,28 @@
 import {
   GoogleAuthProvider,
-  signInWithEmailAndPassword,
+  sendPasswordResetEmail,
   signInWithPopup,
   signOut,
 } from 'firebase/auth';
-import React, { useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link } from 'react-router';
 import { auth } from '../firebase/firebase.config';
 import { toast } from 'react-toastify';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { AuthContext } from '../context/AuthContext';
 
 // 💥 google provider
 const googleProvider = new GoogleAuthProvider();
 
 const Signin = () => {
+  // 🔰 get authProvider Func
+  const { signInWithEmailAndPasswordFunc } = useContext(AuthContext);
+
+  // 🎯  Forgot password
+  //   const [email, setEmail] = useState(null);
+  const emailRef = useRef(null);
+
   // ⚡ display te dekhanor jonn
   const [user, setUser] = useState(null);
 
@@ -29,10 +37,11 @@ const Signin = () => {
     console.log(email, password);
 
     // ⚡ signin with email
-    signInWithEmailAndPassword(auth, email, password)
+    // signInWithEmailAndPassword(auth, email, password)
+    signInWithEmailAndPasswordFunc(email, password)
       .then((res) => {
         console.log(res);
-        // 🍁 form signup 3rd: sendEmailVerification
+        // 🍁 form signup 3rd: sendEmailVerification condition
         if (!res.user.emailVerified) {
           toast.error('Your email is not verified.');
           return;
@@ -58,6 +67,19 @@ const Signin = () => {
       });
   };
 
+  // 🎯 handle Forgot password
+  const handleForgotPassword = () => {
+    // console.log(emailRef.current.value);
+    const email = emailRef.current.value;
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        toast.success('Check your email to reset password');
+      })
+      .catch((e) => {
+        toast.error(e.message);
+      });
+  };
+
   //   💥 google signin
 
   const handleGoogleSignin = () => {
@@ -71,7 +93,8 @@ const Signin = () => {
       });
   };
 
-  console.log(user);
+  //   console.log();
+
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
@@ -101,6 +124,11 @@ const Signin = () => {
               <input
                 type="email"
                 name="email"
+                // 🎯 Forgot password email value: system-2
+                ref={emailRef}
+                // 🎯 Forgot password email value: system-1
+                // value={email}
+                // onChange={(e) => setEmail(e.target.value)}
                 className="input"
                 placeholder="Email"
               />
@@ -120,8 +148,11 @@ const Signin = () => {
                   {show ? <FaEye /> : <FaEyeSlash />}
                 </span>
               </div>
+              {/* 🎯 Forgot password */}
               <div>
-                <a className="link link-hover">Forgot password?</a>
+                <a onClick={handleForgotPassword} className="link link-hover">
+                  Forgot password?
+                </a>
               </div>
               {/* login btn */}
               <button className="btn btn-primary mt-4">Login</button>

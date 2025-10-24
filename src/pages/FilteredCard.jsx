@@ -3,7 +3,7 @@ import { FaStar } from 'react-icons/fa';
 
 const FilteredCard = ({ filteredSkill }) => {
   const { image, skillName, rating, price } = filteredSkill;
-  console.log(filteredSkill);
+  // console.log(filteredSkill);
   return (
     <div className="bg-white rounded-2xl shadow-md hover:shadow-lg transition p-5 flex md:flex-row gap-5  ">
       <img

@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router';
 import MyLink from './MyLink';
 import logo from '../assets/logo1.png';
 import MyContainer from './MyContainer';
+import { AuthContext } from '../context/AuthContext';
 
 const Navbar = () => {
+  const result = useContext(AuthContext);
+  console.log(result);
   const link = (
     <>
       <li>

@@ -6,7 +6,7 @@ const skillPromise = fetch('/skills.json').then((res) => res.json());
 
 const Skills = () => {
   const skillsData = use(skillPromise);
-  console.log(skillsData);
+  // console.log(skillsData);
 
   return (
     <div>
