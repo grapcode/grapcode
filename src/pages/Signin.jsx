@@ -21,6 +21,7 @@ const Signin = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state || '/';
+  console.log(from);
 
   // ♻️ user signin thakle -- signin dekhabe na
   if (user) {
@@ -49,6 +50,7 @@ const Signin = () => {
         // 🍁 form signup 3rd: sendEmailVerification condition
         if (!res.user.emailVerified) {
           toast.error('Your email is not verified.');
+          setUser(null);
           return;
         }
         const user = res.user;

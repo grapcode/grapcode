@@ -3,6 +3,7 @@ import MyContainer from '../components/MyContainer';
 import Banner from '../components/Banner';
 
 import Skills from './Skills';
+import MyLoading from '../components/MyLoading';
 
 const Home = () => {
   return (
@@ -10,9 +11,7 @@ const Home = () => {
       <MyContainer>
         <Banner />
 
-        <Suspense
-          fallback={<span className="loading loading-dots loading-xl"></span>}
-        >
+        <Suspense fallback={<MyLoading />}>
           <Skills />
         </Suspense>
       </MyContainer>

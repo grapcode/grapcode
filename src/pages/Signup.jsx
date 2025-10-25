@@ -35,6 +35,15 @@ const Signup = () => {
       toast.error('Password should be at least 6 digit');
       return;
     }
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+    if (!passwordRegex.test(password)) {
+      toast.error(
+        'Password must be at least 8 characters long and include uppercase, lowercase, number, and special character.'
+      );
+      return;
+    }
 
     // ⚡1st: signup with email
     // createUserWithEmailAndPassword(auth, email, password)
