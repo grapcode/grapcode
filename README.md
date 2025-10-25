@@ -1,16 +1,34 @@
-# React + Vite
+# Project Name
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+grapcode
 
-Currently, two official plugins are available:
+## Purpose
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+এই প্রজেক্টের উদ্দেশ্য হলো ব্যবহারকারীরা বিভিন্ন স্কিল শেয়ার এবং একে অপরের সঙ্গে এক্সচেঞ্জ করতে পারবে।
 
-## React Compiler
+## Live URL
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+[https://yourprojectliveurl.com](https://yourprojectliveurl.com)
 
-## Expanding the ESLint configuration
+## Key Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- ইউজার রেজিস্ট্রেশন ও লগইন
+- স্কিল পোস্ট করা ও এক্সচেঞ্জ করা
+- রিভিউ ও রেটিং সিস্টেম
+
+## NPM Packages Used
+
+- @tailwindcss/vite
+- axios
+- daisyui
+- firebase
+- lucide-react
+- react
+- react-dom
+- react-icons
+- react-router
+- react-spinners
+- react-toastify
+- recharts
+- swiper
+- tailwindcss

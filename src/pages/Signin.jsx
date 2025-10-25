@@ -48,11 +48,11 @@ const Signin = () => {
       .then((res) => {
         setLoading(false);
         // 🍁 form signup 3rd: sendEmailVerification condition
-        if (!res.user.emailVerified) {
-          toast.error('Your email is not verified.');
-          setUser(null);
-          return;
-        }
+        // if (!res.user.emailVerified) {
+        //   toast.error('Your email is not verified.');
+        //   setUser(null);
+        //   return;
+        // }
         const user = res.user;
         toast.success('Sign up was successful.');
         setUser(user);

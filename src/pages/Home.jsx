@@ -4,6 +4,7 @@ import Banner from '../components/Banner';
 
 import Skills from './Skills';
 import MyLoading from '../components/MyLoading';
+import FAQ from './Faq';
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
         <Suspense fallback={<MyLoading />}>
           <Skills />
         </Suspense>
+        <FAQ />
       </MyContainer>
     </div>
   );

@@ -6,7 +6,7 @@ import { MdOutlineEmail } from 'react-icons/md';
 
 const Footer = () => {
   return (
-    <div className="bg-base-300 ">
+    <div className="bg-[#3b25c1] text-white ">
       <MyContainer>
         <footer className=" grid md:grid-cols-3  md:justify-items space-x-15 py-10 p-3 gap-5 ">
           <nav>
