@@ -11,7 +11,7 @@ const Signin = () => {
   const {
     signInWithEmailAndPasswordFunc,
     signInWithGoogleFunc,
-    sendPasswordResetEmailFunc,
+
     user,
     setUser,
     setLoading,
@@ -23,17 +23,17 @@ const Signin = () => {
   const from = location.state || '/';
   console.log(from);
 
-  // ♻️ user signin thakle -- signin dekhabe na
-  if (user) {
-    navigate('/');
-  }
-
   // 🎯  Forgot password
   //   const [email, setEmail] = useState(null);
   const emailRef = useRef(null);
 
   // ⚡ show password
   const [show, setShow] = useState(false);
+
+  // ♻️ user signin thakle -- signin dekhabe na
+  if (user) {
+    navigate('/');
+  }
 
   // ⚡ handle signin/login btn
   const handleSignin = (e) => {
@@ -66,18 +66,22 @@ const Signin = () => {
 
   // 🎯 handle Forgot password
   const handleForgotPassword = () => {
-    // console.log(emailRef.current.value);
-    const email = emailRef.current.value;
-    // sendPasswordResetEmail(auth, email)
-    sendPasswordResetEmailFunc(email)
-      .then(() => {
-        setLoading(false);
-        toast.success('Check your email to reset password');
-      })
-      .catch((e) => {
-        toast.error(e.message);
-      });
+    const email = emailRef.current?.value;
+    navigate('/forgot-password', { state: { email } });
   };
+  // const handleForgotPassword = () => {
+  //   // console.log(emailRef.current.value);
+  //   const email = emailRef.current.value;
+  //   // sendPasswordResetEmail(auth, email)
+  //   sendPasswordResetEmailFunc(email)
+  //     .then(() => {
+  //       setLoading(false);
+  //       toast.success('Check your email to reset password');
+  //     })
+  //     .catch((e) => {
+  //       toast.error(e.message);
+  //     });
+  // };
 
   //   💥 google signin
 
@@ -137,9 +141,13 @@ const Signin = () => {
             </div>
             {/* 🎯 Forgot password */}
             <div>
-              <a onClick={handleForgotPassword} className="link link-hover">
+              <span
+                to="/forgot-password"
+                onClick={handleForgotPassword}
+                className="link link-hover"
+              >
                 Forgot password?
-              </a>
+              </span>
             </div>
             {/* login btn */}
             <button className="btn btn-primary border-0 hover:bg-[#ac55e2] mt-4">
