@@ -1,5 +1,5 @@
 import { GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
@@ -17,11 +17,10 @@ const Signin = () => {
     setLoading,
   } = useContext(AuthContext);
 
-  // 🔰 After successful signin, navigate to home page
+  // 🔰 After successful signin, navigate to card id
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state || '/';
-  console.log(from);
+  const from = location.state?.from?.pathname || '/';
 
   // 🎯  Forgot password
   //   const [email, setEmail] = useState(null);
@@ -31,9 +30,11 @@ const Signin = () => {
   const [show, setShow] = useState(false);
 
   // ♻️ user signin thakle -- signin dekhabe na
-  if (user) {
-    navigate('/');
-  }
+  useEffect(() => {
+    if (user) {
+      navigate(from, { replace: true }); // লগইন থাকলে আগের পেজে পাঠাও
+    }
+  }, [user, navigate, from]);
 
   // ⚡ handle signin/login btn
   const handleSignin = (e) => {
@@ -56,7 +57,6 @@ const Signin = () => {
         const user = res.user;
         toast.success('Sign up was successful.');
         setUser(user);
-        navigate('/');
       })
       .catch((e) => {
         setLoading(false);

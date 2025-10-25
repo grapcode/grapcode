@@ -63,8 +63,8 @@ const Navbar = () => {
             </div>
             {/* ⚡ logo */}
             <Link to={'/'} className="flex items-center cursor-pointer">
-              <img className="h-8 mr-2" src={logo} alt="" />
-              <p className="text-2xl font-bold bg-linear-to-r from-[#1428bf] to-[#ff5cf4] text-transparent bg-clip-text">
+              <img className="md:h-8 h-6 mr-2" src={logo} alt="" />
+              <p className="md:text-2xl text-xl font-bold bg-linear-to-r from-[#1428bf] to-[#ff5cf4] text-transparent bg-clip-text">
                 Grapcode
               </p>
             </Link>
@@ -89,7 +89,7 @@ const Navbar = () => {
                   }
                 >
                   <img
-                    className="h-15 w-15 rounded-full"
+                    className="md:size-15 size-12 rounded-full"
                     src={
                       user?.photoURL ||
                       'https://img.icons8.com/?size=80&id=108652&format=png'
