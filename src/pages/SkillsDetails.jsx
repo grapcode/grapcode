@@ -113,7 +113,7 @@ const SkillsDetails = () => {
               />
               <button
                 type="submit"
-                className="bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
+                className="bg-[#3b25c1] hover:bg-[#ac55e2] text-white font-medium px-5 py-2 rounded-lg transition"
               >
                 Submit
               </button>

@@ -33,14 +33,14 @@ const Banner = () => {
         {skills.map((skill) => (
           <SwiperSlide key={skill.skillId}>
             <div className="relative h-[420px] flex items-center justify-center text-center">
-              {/* 🖼️ Background Image with blur */}
+              {/*  Background Image with blur */}
               <img
                 src={skill.image}
                 alt={skill.skillName}
                 className="absolute inset-0 w-full h-full object-cover blur-[2px] brightness-75"
               />
 
-              {/* 📝 Overlay Text */}
+              {/*  Overlay Text */}
               <div className="relative z-10">
                 <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow-lg">
                   {skill.category}

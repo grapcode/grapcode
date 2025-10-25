@@ -20,7 +20,7 @@ const Skills = () => {
       </div>
       <section>
         <h3 className="text-3xl font-bold mt-8 border-b border-gray-300 pb-2">
-          Top Rated Providers (4.8 & Up)
+          Top Rated Providers
         </h3>
         <div className="flex flex-col">
           {/* ⚡ skills card */}

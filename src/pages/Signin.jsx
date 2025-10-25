@@ -1,7 +1,7 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useRef, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import { Link, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { AuthContext } from '../context/AuthContext';
@@ -19,6 +19,8 @@ const Signin = () => {
 
   // 🔰 After successful signin, navigate to home page
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state || '/';
 
   // ♻️ user signin thakle -- signin dekhabe na
   if (user) {
@@ -55,6 +57,7 @@ const Signin = () => {
         navigate('/');
       })
       .catch((e) => {
+        setLoading(false);
         toast.error(e.message);
       });
   };
@@ -77,13 +80,16 @@ const Signin = () => {
   //   💥 google signin
 
   const handleGoogleSignin = () => {
+    setLoading(true);
     signInWithGoogleFunc()
       .then((res) => {
         setLoading(false);
         toast.success('google signin successful');
         setUser(res.user);
+        navigate('/');
       })
       .catch((e) => {
+        setLoading(false);
         toast.error(e.message);
       });
   };
@@ -134,10 +140,13 @@ const Signin = () => {
               </a>
             </div>
             {/* login btn */}
-            <button className="btn btn-primary mt-4">Login</button>
+            <button className="btn btn-primary border-0 hover:bg-[#ac55e2] mt-4">
+              Login
+            </button>
 
             {/* 💥 Google btn */}
             <button
+              type="button"
               onClick={handleGoogleSignin}
               className="btn mt-2 bg-white text-black border-[#e5e5e5]"
             >

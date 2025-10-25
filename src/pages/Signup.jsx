@@ -131,7 +131,9 @@ const Signup = () => {
               </span>
             </div>
 
-            <button className="btn btn-primary mt-4">Register</button>
+            <button className="btn btn-primary border-0 hover:bg-[#ac55e2] mt-4">
+              Register
+            </button>
             <p className="text-sm text-black/60">
               Already have an account?{' '}
               <Link

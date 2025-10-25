@@ -24,7 +24,7 @@ const SkillsCard = ({ data }) => {
       {/*  Button */}
       <NavLink
         to={`/skills/${skillId}`}
-        className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-5 py-2 rounded-lg transition"
+        className="bg-[#3b25c1] hover:bg-[#ac55e2] text-white font-medium px-5 py-2 rounded-lg transition"
       >
         View Details
       </NavLink>
