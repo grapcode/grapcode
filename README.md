@@ -1,7 +1,6 @@
 <h1 align="center">Hi 👋, I'm Khalil Ahmad</h1>
-<h3 align="center">A passionateWeb Designer & Front-End Developer | Graphic Designer | MS Office Specialist frontend developer from BD</h3>
+<h3 align="center">Web Designer & Front-End Developer | Graphic Designer | MS Office Specialist</h3>
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=grapcode&label=Profile%20views&color=0e75b6&style=flat" alt="grapcode" /> </p>
 
 - 🔭 I’m currently working on [SharePlate](https://eloquent-semifreddo-378acc.netlify.app/)
 
@@ -21,3 +20,5 @@
 <p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=grapcode&show_icons=true&locale=en" alt="grapcode" /></p>
 
 <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=grapcode&" alt="grapcode" /></p>
+
+<p align="left"> <img src="https://komarev.com/ghpvc/?username=grapcode&label=Profile%20views&color=0e75b6&style=flat" alt="grapcode" /> </p>
